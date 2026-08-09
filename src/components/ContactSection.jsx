@@ -52,7 +52,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="px-5 sm:px-8 lg:pl-32 py-20 relative z-10 border-t border-slate-900">
+    <section id="contact" className="px-5 sm:px-8 lg:pl-32 py-20 relative z-10 border-t border-[var(--border-card)]">
       <div className="max-w-[1200px] mx-auto">
         <Reveal>
           <div className="flex items-center gap-3 mb-10">
@@ -61,7 +61,7 @@ export default function ContactSection() {
             </div>
             <div>
               <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">GET IN TOUCH</span>
-              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-[var(--text-heading)] tracking-tight">
                 Let's Work Together
               </h2>
             </div>
@@ -72,21 +72,21 @@ export default function ContactSection() {
           {/* Left Column: Contact Cards */}
           <div className="lg:col-span-5 space-y-4">
             <Reveal delay={100}>
-              <div className="glass-panel rounded-2xl p-6 border border-slate-800 bg-[#070d1d]">
-                <h3 className="font-display font-bold text-lg text-white mb-2">Direct Contact</h3>
-                <p className="text-slate-400 text-xs leading-relaxed mb-6">{connect.intro}</p>
+              <div className="glass-panel rounded-2xl p-6 border border-[var(--border-card)]">
+                <h3 className="font-display font-bold text-lg text-[var(--text-heading)] mb-2">Direct Contact</h3>
+                <p className="text-[var(--text-muted)] text-xs leading-relaxed mb-6">{connect.intro}</p>
 
                 <div className="space-y-3">
                   {connect.items.map((item, i) => {
                     const Icon = iconMap[item.icon] || Mail;
                     const content = (
-                      <div className="flex items-center gap-3.5 bg-[#040814] border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-300 hover:border-cyan-500/50 hover:text-white transition-all group overflow-hidden">
+                      <div className="flex items-center gap-3.5 theme-card-subtle border border-[var(--border-card)] rounded-xl px-4 py-3 text-xs text-[var(--text-body)] hover:border-cyan-500/50 hover:text-[var(--text-heading)] transition-all group overflow-hidden">
                         <div className="h-9 w-9 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 group-hover:scale-105 transition-transform">
                           <Icon size={16} />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-[10px] font-mono text-slate-500 uppercase">{item.detail}</p>
-                          <p className="font-mono text-xs text-white truncate break-all">{item.label}</p>
+                          <p className="text-[10px] font-mono text-[var(--text-muted)] uppercase">{item.detail}</p>
+                          <p className="font-mono text-xs text-[var(--text-heading)] truncate break-all">{item.label}</p>
                         </div>
                       </div>
                     );
@@ -106,15 +106,15 @@ export default function ContactSection() {
           {/* Right Column: Interactive Glass Contact Form */}
           <div className="lg:col-span-7">
             <Reveal delay={150}>
-              <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-800 bg-[#070d1d]">
-                <h3 className="font-display font-bold text-lg text-white mb-1">Send a Message</h3>
-                <p className="text-slate-400 text-xs mb-6">Have a project or opportunity in mind? Drop a message below.</p>
+              <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-[var(--border-card)]">
+                <h3 className="font-display font-bold text-lg text-[var(--text-heading)] mb-1">Send a Message</h3>
+                <p className="text-[var(--text-muted)] text-xs mb-6">Have a project or opportunity in mind? Drop a message below.</p>
 
                 {submitted ? (
                   <div className="py-12 text-center bg-emerald-950/20 border border-emerald-500/40 rounded-2xl animate-fadeIn">
                     <CheckCircle size={44} className="text-emerald-400 mx-auto mb-3 animate-bounce" />
-                    <h4 className="font-display font-bold text-lg text-white">Message Delivered to Inbox!</h4>
-                    <p className="text-xs text-slate-300 mt-1.5 max-w-sm mx-auto leading-relaxed">
+                    <h4 className="font-display font-bold text-lg text-[var(--text-heading)]">Message Delivered to Inbox!</h4>
+                    <p className="text-xs text-[var(--text-body)] mt-1.5 max-w-sm mx-auto leading-relaxed">
                       Thank you for reaching out! Your message has been sent directly to Abhishek's inbox.
                     </p>
                   </div>
@@ -129,49 +129,49 @@ export default function ContactSection() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase">Your Name *</label>
+                        <label className="block text-[11px] font-mono text-[var(--text-muted)] mb-1.5 uppercase">Your Name *</label>
                         <input
                           type="text"
                           required
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
                           placeholder="e.g. John Doe"
-                          className="w-full bg-[#040814] border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 outline-none transition-colors"
+                          className="w-full theme-card-subtle border border-[var(--border-card)] focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-[var(--text-heading)] placeholder:text-[var(--text-muted)] outline-none transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase">Your Email *</label>
+                        <label className="block text-[11px] font-mono text-[var(--text-muted)] mb-1.5 uppercase">Your Email *</label>
                         <input
                           type="email"
                           required
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
                           placeholder="john@example.com"
-                          className="w-full bg-[#040814] border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 outline-none transition-colors"
+                          className="w-full theme-card-subtle border border-[var(--border-card)] focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-[var(--text-heading)] placeholder:text-[var(--text-muted)] outline-none transition-colors"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase">Subject</label>
+                      <label className="block text-[11px] font-mono text-[var(--text-muted)] mb-1.5 uppercase">Subject</label>
                       <input
                         type="text"
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
                         placeholder="Job Opportunity / Project Collaboration"
-                        className="w-full bg-[#040814] border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 outline-none transition-colors"
+                        className="w-full theme-card-subtle border border-[var(--border-card)] focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-[var(--text-heading)] placeholder:text-[var(--text-muted)] outline-none transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase">Message *</label>
+                      <label className="block text-[11px] font-mono text-[var(--text-muted)] mb-1.5 uppercase">Message *</label>
                       <textarea
                         rows={4}
                         required
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         placeholder="Tell me about your project or opportunity..."
-                        className="w-full bg-[#040814] border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 outline-none transition-colors resize-none"
+                        className="w-full theme-card-subtle border border-[var(--border-card)] focus:border-cyan-400 rounded-xl px-4 py-2.5 text-xs text-[var(--text-heading)] placeholder:text-[var(--text-muted)] outline-none transition-colors resize-none"
                       />
                     </div>
 

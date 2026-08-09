@@ -9,7 +9,7 @@ export default function TerminalStats() {
     <section className="px-5 sm:px-8 lg:pl-32 -mt-2 mb-16">
       <Reveal>
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-[1.3fr_1.7fr] gap-5">
-          <div className="glass-panel rounded-2xl p-6 font-mono text-[13px] leading-7 border border-border bg-panel/80">
+          <div className="rounded-2xl p-6 font-mono text-[13px] leading-7 code-terminal-dark border shadow-lg">
             <p>
               <span className="text-emerald-400 font-semibold">abhishek@portfolio</span>
               <span className="text-slate-500">:~$ </span>
@@ -38,7 +38,7 @@ export default function TerminalStats() {
             <p className="mt-2">
               <span className="text-emerald-400 font-semibold">abhishek@portfolio</span>
               <span className="text-slate-500">:~$ </span>
-              <span className="inline-block w-2 h-4 bg-slate-200 align-middle animate-blink" />
+              <span className="inline-block w-2 h-4 bg-cyan-400 align-middle animate-blink" />
             </p>
           </div>
 
@@ -48,11 +48,11 @@ export default function TerminalStats() {
               return (
                 <div
                   key={i}
-                  className="glass-panel rounded-2xl p-5 flex flex-col items-center justify-center text-center card-hover border border-border"
+                  className="glass-panel rounded-2xl p-5 flex flex-col items-center justify-center text-center card-hover border border-[var(--border-card)]"
                 >
                   <Icon size={24} className="text-cyan-400 mb-3" />
-                  <p className="font-display font-extrabold text-2xl text-white tracking-tight">{s.value}</p>
-                  <p className="text-[11px] font-mono text-slate-400 mt-1.5">{s.label}</p>
+                  <p className="font-display font-extrabold text-2xl text-[var(--text-heading)] tracking-tight">{s.value}</p>
+                  <p className="text-[11px] font-mono text-[var(--text-muted)] mt-1.5">{s.label}</p>
                 </div>
               );
             })}

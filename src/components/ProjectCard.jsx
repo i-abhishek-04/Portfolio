@@ -3,7 +3,7 @@ import { GithubIcon, YoutubeIcon, InstagramIcon, TwitterIcon, FacebookIcon, Link
 
 function VisualSocial() {
   return (
-    <div className="relative h-36 rounded-2xl bg-[#040814] border border-cyan-500/20 p-3 overflow-hidden flex items-center justify-between">
+    <div className="relative h-36 rounded-2xl code-terminal-dark p-3 overflow-hidden flex items-center justify-between shadow-inner">
       <div className="flex flex-col gap-2 text-slate-400 pl-1 z-10">
         <InstagramIcon size={13} className="text-pink-400" />
         <YoutubeIcon size={13} className="text-red-500" />
@@ -38,11 +38,11 @@ function VisualSocial() {
 
 function VisualChat() {
   return (
-    <div className="h-36 rounded-2xl bg-[#040814] border border-cyan-500/20 p-3.5 flex flex-col justify-center gap-2.5">
+    <div className="h-36 rounded-2xl code-terminal-dark p-3.5 flex flex-col justify-center gap-2.5 shadow-inner">
       <div className="self-start bg-slate-900/90 border border-slate-700/60 rounded-2xl px-3.5 py-1.5 text-[11px] text-slate-300 shadow-sm">
         How can I help you today?
       </div>
-      <div className="self-end bg-blue-600/30 border border-blue-500/50 rounded-2xl px-3.5 py-1.5 text-[11px] text-blue-200 shadow-[0_0_12px_rgba(37,99,235,0.2)]">
+      <div className="self-end bg-blue-600/40 border border-blue-500/50 rounded-2xl px-3.5 py-1.5 text-[11px] text-blue-200 shadow-[0_0_12px_rgba(37,99,235,0.2)]">
         Explain RAG in simple terms.
       </div>
       <div className="self-start bg-slate-900/90 border border-slate-700/60 rounded-2xl px-3.5 py-1 text-[11px] text-slate-400 font-mono tracking-widest">
@@ -54,7 +54,7 @@ function VisualChat() {
 
 function VisualCode() {
   return (
-    <div className="h-36 rounded-2xl bg-[#030611] border border-cyan-500/20 p-3.5 font-mono text-[10px] leading-[16px] flex gap-3 overflow-hidden">
+    <div className="h-36 rounded-2xl code-terminal-dark p-3.5 font-mono text-[10px] leading-[16px] flex gap-3 overflow-hidden shadow-inner">
       <div className="text-slate-600 flex flex-col select-none border-r border-slate-800 pr-2">
         <span>10</span>
         <span>11</span>
@@ -79,30 +79,30 @@ export default function ProjectCard({ project }) {
   const Visual = visuals[project.visual] || VisualSocial;
 
   return (
-    <div className="glass-panel rounded-2xl p-6 flex flex-col justify-between card-hover border border-slate-800/80 bg-[#070d1c]/90 h-full">
+    <div className="glass-panel rounded-2xl p-6 flex flex-col justify-between card-hover border border-[var(--border-card)] h-full">
       <div>
         {/* Top Badges */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 px-2.5 py-0.5 rounded-md">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 rounded-md font-semibold">
               {project.category}
             </span>
             {project.date && (
-              <span className="text-[10px] font-mono text-slate-400 bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-md">
+              <span className="text-[10px] font-mono text-[var(--text-muted)] theme-card-subtle px-2 py-0.5 rounded-md">
                 {project.date}
               </span>
             )}
           </div>
           {project.featured && (
-            <span className="flex items-center gap-1 text-[10px] font-mono text-purple-300 bg-purple-500/15 border border-purple-500/40 rounded-full px-2.5 py-0.5">
+            <span className="flex items-center gap-1 text-[10px] font-mono text-purple-400 bg-purple-500/15 border border-purple-500/40 rounded-full px-2.5 py-0.5 font-medium">
               <Star size={10} fill="currentColor" /> Featured
             </span>
           )}
         </div>
 
         {/* Title & Tagline */}
-        <h3 className="font-display font-bold text-white text-lg">{project.name}</h3>
-        <p className="text-xs text-cyan-300/80 font-mono mt-0.5 mb-3">{project.tagline}</p>
+        <h3 className="font-display font-bold text-[var(--text-heading)] text-lg">{project.name}</h3>
+        <p className="text-xs text-cyan-400 font-mono mt-0.5 mb-3">{project.tagline}</p>
 
         {/* Visual Mockup */}
         <div className="mb-4">
@@ -110,13 +110,13 @@ export default function ProjectCard({ project }) {
         </div>
 
         {/* Description */}
-        <p className="text-slate-300 text-xs leading-relaxed mb-4">{project.description}</p>
+        <p className="text-[var(--text-body)] text-xs leading-relaxed mb-4">{project.description}</p>
 
         {/* Feature Bullets */}
         {project.features && (
-          <ul className="space-y-1.5 mb-4 pt-3 border-t border-slate-800/80">
+          <ul className="space-y-1.5 mb-4 pt-3 border-t border-[var(--border-card)]">
             {project.features.map((feat, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-[11px] text-slate-400 leading-snug">
+              <li key={idx} className="flex items-start gap-2 text-[11px] text-[var(--text-muted)] leading-snug">
                 <CheckCircle2 size={12} className="text-cyan-400 shrink-0 mt-0.5" />
                 <span>{feat}</span>
               </li>
@@ -127,11 +127,11 @@ export default function ProjectCard({ project }) {
 
       <div>
         {/* Tech Tags */}
-        <div className="flex flex-wrap gap-1.5 mb-5 pt-3 border-t border-slate-800/80">
+        <div className="flex flex-wrap gap-1.5 mb-5 pt-3 border-t border-[var(--border-card)]">
           {project.tags.map((t) => (
             <span
               key={t}
-              className="text-[10px] font-mono px-2.5 py-0.5 rounded-md bg-[#040814] border border-slate-800 text-slate-300"
+              className="text-[10px] font-mono px-2.5 py-0.5 rounded-md theme-card-subtle text-[var(--text-body)] font-medium"
             >
               {t}
             </span>
@@ -154,7 +154,7 @@ export default function ProjectCard({ project }) {
             href={project.repo}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 border border-slate-700 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-500 text-xs font-mono py-2.5 rounded-xl transition-all"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 theme-card-subtle text-[var(--text-body)] hover:text-[var(--text-heading)] hover:border-cyan-500/50 text-xs font-mono py-2.5 rounded-xl transition-all"
           >
             <GithubIcon size={12} /> GitHub Repo
           </a>

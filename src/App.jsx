@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-200 overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--text-body)] transition-colors duration-300 overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
       <Navbar />
       <Sidebar />
       <main className="space-y-6">

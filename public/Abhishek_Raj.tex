@@ -1,0 +1,119 @@
+\documentclass[10pt,letterpaper]{article}
+
+% ---------- ATS-SAFE PACKAGES ONLY ----------
+\usepackage[letterpaper,margin=0.25in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Standard, universally-parsed sans font (no icon fonts, no color boxes, no tables)
+\definecolor{linkblue}{RGB}{0,71,171}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    pdfborder={0 0 0}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section formatting: plain bold caps + a single rule. No colorbox, no shading, no tables.
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\vspace{2pt}\hrule]
+\titlespacing{\section}{0pt}{3pt}{2pt}
+\setlength{\parskip}{1pt}
+
+\newcommand{\resitem}[1]{\item #1}
+\setlist[itemize]{topsep=0pt, itemsep=0pt, parsep=0pt, leftmargin=16pt, label=\textbullet}
+
+% Simple two-column-look entry using a plain \hfill (still linear text order for ATS)
+\newcommand{\entry}[4]{%
+    \textbf{#1} \hfill \textbf{#3}\\
+    \textit{#2} \hfill \textit{#4}\\[0pt]
+}
+
+\begin{document}
+
+% ---------- HEADER (plain text, centered, no image/logo) ----------
+\begin{center}
+    {\LARGE \textbf{Abhishek Raj}}\\[4pt]
+    New Delhi, India \quad $\vert$ \quad +91-8810590060 \quad $\vert$ \quad \href{mailto:abhishekraj185a@gmail.com}{abhishekraj185a@gmail.com}\\[2pt]
+    \href{https://www.linkedin.com/in/abhishekraj0011/}{LinkedIn} \quad $\vert$ \quad
+    \href{https://github.com/i-abhishek-04}{GitHub} \quad $\vert$ \quad
+    \href{https://leetcode.com/u/iAbHi__004/}{LeetCode}
+\end{center}
+
+\vspace{-4pt}
+
+% ---------- SUMMARY (optional, boosts keyword density for ATS) ----------
+\section*{Summary}
+Geoinformatics undergraduate skilled in full-stack development (Python, JavaScript, React, FastAPI) and applied AI/LLM engineering (LangChain, RAG, prompt engineering), with hands-on experience shipping tested, API-integrated projects end to end.
+
+% ---------- EXPERIENCE ----------
+\section*{Experience}
+
+\entry{Frontend Web Development Intern}{Magnus Corps (Remote)}{May 2026 -- Present}{}
+\vspace{-4pt}
+\begin{itemize}
+    \item Built responsive frontend layouts with semantic HTML/CSS and JavaScript-driven interactivity for the agency's client-facing marketing site.
+    \item Helped integrate an AI-powered feature into the frontend and maintained a clear, reusable component structure aligned with the design system.
+    \item Tech stack: HTML, CSS, JavaScript, AI integration.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+\section*{Projects}
+
+\entry{SyncPad --- Real-Time Collaborative Code Editor (Hand-Built CRDT)}{\href{https://github.com/i-abhishek-04/SyncPad}{GitHub} $\vert$ \href{https://sync-pad-rho.vercel.app}{Live Demo}}{2026}{}
+\vspace{-4pt}
+\begin{itemize}
+    \item Engineered a real-time collaborative editor from scratch with a hand-built RGA CRDT engine (Roh et al. 2011), achieving strong eventual consistency across concurrent clients without server-side locking.
+    \item Built a FastAPI and native WebSocket backend with a React/Vite frontend featuring live cursor presence and a CRDT inspector; validated with an 8-test convergence suite covering concurrent edits, 4-client convergence, and reconnect resync.
+    \item Tech stack: Python, FastAPI, WebSockets, React, Vite, PrismJS, CRDT/RGA.
+\end{itemize}
+
+\entry{OmniSocial AI --- Full-Stack Social Media Analytics SaaS}{\href{https://github.com/i-abhishek-04/OmniSocial-AI.git}{GitHub} $\vert$ \href{https://omnisocial-ai.vercel.app/}{Live Demo}}{2026}{}
+\vspace{-4pt}
+\begin{itemize}
+    \item Architected a full-stack creator analytics platform with FastAPI and React 19, exposing 21 REST endpoints backed by JWT authentication and 4 SQLAlchemy models, validated by a 33-test pytest suite (100\% passing); integrated a pluggable platform-adapter system across 5 live third-party APIs (YouTube, GitHub, Instagram, Reddit, Dev.to) with automatic fallback.
+    \item Integrated an LLM-powered assistant with tiered fallback across Groq (Llama 3.3 70B) and Google Gemini, grounding responses in live user analytics; conducted a security audit hardening JWT fallback, rate limiting, and CORS handling.
+    \item Tech stack: Python, FastAPI, React 19, Vite, SQLAlchemy, JWT, SQLite, pytest, Groq, Gemini.
+\end{itemize}
+
+\entry{LangChain Multi-Provider AI Studio \& Chain Playground}{\href{https://github.com/i-abhishek-04/Langchain-enterprise-rag-platform.git}{GitHub} $\vert$ \href{https://langchain-enterprise-ai-platform.vercel.app}{Live Demo}}{2026}{}
+\vspace{-4pt}
+\begin{itemize}
+    \item Built an interactive React/Vite studio unifying 5 free-tier AI providers (Groq, Gemini, OpenRouter, HuggingFace, local Ollama) behind one interface, with a zero-config client-side fallback mode and an LCEL Chain Flow Visualizer.
+    \item Curated a prompt template library (ReAct, RAG Q\&A, JSON extraction) and a Python code exporter for one-click runnable LangChain snippets, structured within a uv-managed Python monorepo.
+    \item Tech stack: React, Vite, Python, LangChain, LCEL, Groq, Gemini API, HuggingFace, Ollama.
+\end{itemize}
+
+% ---------- TECHNICAL SKILLS ----------
+\section*{Technical Skills}
+\textbf{Programming Languages:} C++, Python, JavaScript, HTML, CSS, SQL\\
+\textbf{Frameworks \& Tools:} React, Vite, FastAPI, SQLAlchemy, Git/GitHub, REST APIs, MySQL, MongoDB\\
+\textbf{Generative AI / LLM Tools:} LangChain, LCEL, Google Gemini API, Groq, Ollama, OpenRouter, Prompt Engineering, RAG (Retrieval-Augmented Generation)\\
+\textbf{Core CS Subjects:} Data Structures \& Algorithms, Object-Oriented Programming, Operating Systems, Computer Networks, Database Management Systems, System Design
+
+% ---------- EDUCATION ----------
+\section*{Education}
+
+\entry{Netaji Subhas University of Technology}{B.Tech, Geoinformatics}{2023 -- 2027}{}
+CGPA: 6.92 / 10
+
+\vspace{3pt}
+{\small Class XII (CBSE), 2023 \quad $\vert$ \quad Class X (CBSE), 2021}
+
+% ---------- ACHIEVEMENTS ----------
+\section*{Achievements}
+\begin{itemize}
+    \item Solved 200+ Data Structures \& Algorithms problems on LeetCode spanning graphs, dynamic programming, and trees.
+    \item Ranked within the top 20 percentile in JEE Main among 1M+ candidates.
+\end{itemize}
+
+\end{document}
